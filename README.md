@@ -22,7 +22,7 @@ function odc() { inotifywait -e close_write,moved_to,create -m . | while read -r
 
 6. open a new tab in the terminal, `cd` to the directory that contains web files and run `rd`
 
-7. open the page in the browser
+7. open the page in the browser (and activate the addon)
 
 ## further options:
 
