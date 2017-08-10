@@ -34,3 +34,7 @@ you can sync a folder with your local host folder with the following additional 
 
 `function roc() { sudo rsync -avz --delete . /opt/lampp/htdocs/; echo reload | nc -c localhost 32000; };
 function odc() { inotifywait -e close_write,moved_to,create -m . | while read -r directory events filename; do roc; done; }`
+
+## A video for demonstration:
+
+[![Video Demonstration](https://img.youtube.com/vi/yhwZXId6jvM/0.jpg)](https://www.youtube.com/watch?v=yhwZXId6jvM) 
