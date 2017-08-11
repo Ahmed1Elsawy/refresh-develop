@@ -16,7 +16,7 @@ This script makes things a lot easier. It uses inotify-tools and netcat and it n
 4. open *~/.bashrc* and paste the following:
 
 `function roc() { echo reload | nc -c localhost 32000; };
-function odc() { inotifywait -e close_write,moved_to,create -m . | while read -r directory events filename; do roc; done; }`
+function odc() { while true; do inotifywait $(find . -type d); roc; done; }`
 
 5. `source ~/.bashrc`
 
@@ -33,7 +33,7 @@ you can sync a folder with your local host folder with the following additional 
 - modify what you have pasted in *~/.bashrc* accordingly:
 
 `function roc() { sudo rsync -avz --delete . /opt/lampp/htdocs/; echo reload | nc -c localhost 32000; };
-function odc() { inotifywait -e close_write,moved_to,create -m . | while read -r directory events filename; do roc; done; }`
+function odc() { while true; do inotifywait $(find . -type d); roc; done; }`
 
 ## A video for demonstration:
 
